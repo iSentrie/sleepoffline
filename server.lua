@@ -1,3 +1,6 @@
+ESX = exports['es_extended']:getSharedObject()
+
+
 local sleepingPeds = {}
 
 
