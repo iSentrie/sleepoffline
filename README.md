@@ -40,7 +40,7 @@ The `config.lua` file offers extensive customization options:
 ### Basic Settings
 ```lua
 Config.Debug = false -- Enable/disable debug messages
-Config.Locale = 'de' -- Language (de/en)
+Config.Locale = 'en' -- Language (de/en)
 ```
 
 ### Ped Settings
