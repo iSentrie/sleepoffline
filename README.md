@@ -1,19 +1,19 @@
 # ESX Ali Sleep Offline
 
-Ein professionelles ESX-Script, das schlafende Peds für offline Spieler erstellt. Wenn ein Spieler den Server verlässt, wird an seiner Position ein schlafender Ped erstellt, der das exakte Aussehen und die Kleidung des Spielers hat.
+A professional ESX script that creates sleeping peds for offline players. When a player leaves the server, a sleeping ped is created at their position, replicating the exact appearance and clothing of the player.
 
 ## Features
 
-- Automatische Erstellung von schlafenden Peds wenn Spieler offline gehen
-- Vollständige Synchronisation der Spieler-Outfits (inkl. Kleidung, Accessoires, Masken)
-- Automatische Entfernung der Peds nach konfigurierbarer Zeit
-- Konfigurierbare 3D-Text Anzeige über den schlafenden Spielern
-- Maskierung der Nachnamen für mehr Privatsphäre
-- Mehrsprachig (Deutsch/Englisch)
-- Umfangreiche Konfigurationsmöglichkeiten
-- Optimierte Performance durch intelligentes Resource-Management
-- Debug-Modus für einfache Fehlersuche
-- Admin-Testbefehl zum manuellen Testen
+- Automatic creation of sleeping peds when players go offline
+- Full synchronization of player outfits (including clothing, accessories, masks)
+- Automatic removal of peds after a configurable time
+- Configurable 3D text display above sleeping players
+- Masking of last names for increased privacy
+- Multilingual support (German/English)
+- Extensive configuration options
+- Optimized performance through intelligent resource management
+- Debug mode for easy troubleshooting
+- Admin test command for manual testing
 
 ## Dependencies
 
@@ -25,32 +25,32 @@ Ein professionelles ESX-Script, das schlafende Peds für offline Spieler erstell
 
 ## Installation
 
-1. Lade die Resource in deinen Server-Resources Ordner
-2. Füge folgende Zeile in deine server.cfg ein:
+1. Place the resource in your server's resources folder.
+2. Add the following line to your `server.cfg`:
 ```cfg
 ensure ali_sleepoffline
 ```
-3. Passe die Konfiguration in der config.lua an deine Bedürfnisse an
-4. Starte deinen Server neu
+3. Adjust the configuration in `config.lua` to suit your needs.
+4. Restart your server.
 
-## Konfiguration
+## Configuration
 
-Die config.lua bietet umfangreiche Einstellungsmöglichkeiten:
+The `config.lua` file offers extensive customization options:
 
-### Grundeinstellungen
+### Basic Settings
 ```lua
-Config.Debug = false -- Debug-Nachrichten aktivieren/deaktivieren
-Config.Locale = 'de' -- Sprache (de/en)
+Config.Debug = false -- Enable/disable debug messages
+Config.Locale = 'de' -- Language (de/en)
 ```
 
-### Ped Einstellungen
+### Ped Settings
 ```lua
-Config.PedTimeout = 15 -- Zeit in Minuten bis zur Entfernung
-Config.PedCheckInterval = 1 -- Prüfintervall in Minuten
-Config.PedOffset = -1.0 -- Z-Offset für die Position
+Config.PedTimeout = 15 -- Time in minutes before removal
+Config.PedCheckInterval = 1 -- Check interval in minutes
+Config.PedOffset = -1.0 -- Z-offset for position
 ```
 
-### Text Einstellungen
+### Text Settings
 ```lua
 Config.TextSettings = {
     Font = 4,
@@ -60,28 +60,28 @@ Config.TextSettings = {
 }
 ```
 
-### Namensanzeige
+### Name Display
 ```lua
 Config.NameDisplay = {
     Enabled = true,
     MaskLastname = true,
     MaskLength = 3,
-    Format = "~y~Spieler Schläft\n~w~Name: %s"
+    Format = "~y~Player Sleeping\n~w~Name: %s"
 }
 ```
 
-## Admin Befehle
+## Admin Commands
 
-- `/fakesleep` - Erstellt einen Fake-Ped an deiner Position (Benötigt Admin-Rechte)
+- `/fakesleep` - Creates a fake ped at your position (Admin rights required)
 
 ## Support
 
-Bei Fragen oder Problemen stehe ich dir gerne zur Verfügung:
+If you have any questions or issues, feel free to contact me:
 - Discord: AliOG1337
 
-## Lizenz
+## License
 
-Dieses Script ist urheberrechtlich geschützt. Jegliche Weiterverbreitung oder Modifikation ohne ausdrückliche Erlaubnis ist untersagt.
+This script is copyright-protected. Any redistribution or modification without explicit permission is prohibited.
 
-© 2024 AliOG. Alle Rechte vorbehalten.
-"# ali_sleepoffline" 
+© 2024 AliOG. All rights reserved.  
+"# ali_sleepoffline"
