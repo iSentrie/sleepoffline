@@ -2,7 +2,7 @@ Config = {}
 
 -- Basic Settings
 Config.Debug = false -- Enable/disable debug messages
-Config.Locale = 'de' -- Language (de/en)
+Config.Locale = 'en' -- Language (de/en)
 
 -- Ped Settings
 Config.PedTimeout = 15 -- Time in minutes before a sleeping ped is removed
