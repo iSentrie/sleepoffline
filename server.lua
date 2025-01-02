@@ -61,7 +61,7 @@ local function getPlayerData(identifier)
 end
 
 
-RegisterCommand(Config.Permissions.FakeCommand, function(source)
+RegisterCommand(Config.Permissions.FakeCommandName, function(source)
     if source == 0 then return end
     
     local xPlayer = ESX.GetPlayerFromId(source)
