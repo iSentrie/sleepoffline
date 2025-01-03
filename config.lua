@@ -1,8 +1,8 @@
 Config = {}
 
 -- Basic Settings
-Config.Debug = true -- Enable/disable debug messages
-Config.Locale = 'en' -- Language (de/en)
+Config.Debug = false -- Enable/disable debug messages
+Config.Locale = 'en' -- Language (de/en/lt)
 
 -- Ped Settings
 Config.PedTimeout = 15 -- Time in minutes before a sleeping ped is removed
@@ -50,11 +50,20 @@ Config.Locales = {
 
 -- Name Display Settings
 Config.NameDisplay = {
-    Enabled = true, -- Enable/disable name display
+    Mode = "license", -- Modes: false, "name", "license"
     MaskLastname = true, -- Mask last names (e.g., "Doe" becomes "Do*******")
     MaskLength = 2, -- Number of visible characters for masked last names
-    Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name -- Format of the name display
+    Format = nil -- Placeholder; will be dynamically set below
 }
+
+-- Dynamically set the Format after Mode is declared
+if Config.NameDisplay.Mode == "name" then
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name
+elseif Config.NameDisplay.Mode == "license" then
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].license
+else
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping
+end
 
 -- MySQL Settings
 Config.MySQL = {

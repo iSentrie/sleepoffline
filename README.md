@@ -40,7 +40,7 @@ The `config.lua` file offers extensive customization options:
 ### Basic Settings
 ```lua
 Config.Debug = false -- Enable/disable debug messages
-Config.Locale = 'en' -- Language (de/en)
+Config.Locale = 'en' -- Language (de/en/lt)
 ```
 
 ### Ped Settings
@@ -63,11 +63,20 @@ Config.TextSettings = {
 ### Name Display
 ```lua
 Config.NameDisplay = {
-    Enabled = true,
-    MaskLastname = true,
-    MaskLength = 3,
-    Format = "~y~Player Sleeping\n~w~Name: %s"
+    Mode = "license", -- Modes: false, "name", "license"
+    MaskLastname = true, -- Mask last names (e.g., "Doe" becomes "Do*******")
+    MaskLength = 2, -- Number of visible characters for masked last names
+    Format = nil -- Placeholder; will be dynamically set below
 }
+
+-- Dynamically set the Format after Mode is declared
+if Config.NameDisplay.Mode == "name" then
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name
+elseif Config.NameDisplay.Mode == "license" then
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].license
+else
+    Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping
+end
 ```
 
 ## Admin Commands
@@ -83,5 +92,5 @@ If you have any questions or issues, feel free to contact me:
 
 This script is copyright-protected. Any redistribution or modification without explicit permission is prohibited.
 
-© 2024 AliOG. All rights reserved.  
+© 2024 AliOG. All rights reserved.
 "# ali_sleepoffline"
