@@ -1,7 +1,7 @@
 Config = {}
 
 -- Basic Settings
-Config.Debug = false -- Enable/disable debug messages
+Config.Debug = true -- Enable/disable debug messages
 Config.Locale = 'en' -- Language (de/en)
 
 -- Ped Settings
@@ -26,12 +26,33 @@ Config.Animation = {
     BlendOut = -8.0, -- Transition speed out of the animation
 }
 
+-- Localization
+Config.Locales = {
+    ['de'] = {
+        ['sleeping'] = 'Spieler Schläft',
+        ['name'] = 'Name: %s',
+        ['unknown'] = 'Unbekannt'
+    },
+    ['en'] = {
+        ['sleeping'] = 'Player Sleeping',
+        ['name'] = 'Name: %s',
+        ['unknown'] = 'Unknown'
+    },
+    ['lt'] = {
+        ['sleeping'] = 'Žaidėjas miega',
+        ['name'] = 'Vardas: %s',
+        ['unknown'] = 'Nežinomas'
+    }
+}
+
 -- Name Display Settings
 Config.NameDisplay = {
     Enabled = true, -- Enable/disable name display
     MaskLastname = true, -- Mask last names (e.g., "Doe" becomes "Do*******")
     MaskLength = 2, -- Number of visible characters for masked last names
-    Format = "~y~Player Sleeping\n~w~Name: %s" -- Format of the name display (%s is replaced by the name)
+    -- Format = "~y~Žaidėjas miega" -- Format of the name display (%s is replaced by the name)
+    -- Format = "~y~Player Sleeping\n~w~Name: %s" -- Format of the name display (%s is replaced by the name)
+    Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name -- Format of the name display (%s is replaced by the name)
 }
 
 -- MySQL Settings
@@ -51,18 +72,4 @@ Config.MySQL = {
 Config.Permissions = {
     FakeCommand = "admin", -- Permission level required for the fake command
     FakeCommandName = "fakesleep" -- Name of the fake sleep command
-}
-
--- Localization
-Config.Locales = {
-    ['de'] = {
-        ['sleeping'] = 'Spieler Schläft',
-        ['name'] = 'Name: %s',
-        ['unknown'] = 'Unbekannt'
-    },
-    ['en'] = {
-        ['sleeping'] = 'Player Sleeping',
-        ['name'] = 'Name: %s',
-        ['unknown'] = 'Unknown'
-    }
 }
