@@ -1,7 +1,7 @@
 Config = {}
 
 -- Basic Settings
-Config.Debug = false -- Enable/disable debug messages
+Config.Debug = true -- Enable/disable debug messages
 Config.Locale = 'en' -- Language (de/en)
 
 -- Ped Settings
@@ -31,17 +31,20 @@ Config.Locales = {
     ['de'] = {
         ['sleeping'] = 'Spieler Schläft',
         ['name'] = 'Name: %s',
-        ['unknown'] = 'Unbekannt'
+        ['unknown'] = 'Unbekannt',
+        ['license'] = "Lizenz: %s"
     },
     ['en'] = {
         ['sleeping'] = 'Player Sleeping',
         ['name'] = 'Name: %s',
-        ['unknown'] = 'Unknown'
+        ['unknown'] = 'Unknown',
+        ['license'] = "License: %s"
     },
     ['lt'] = {
         ['sleeping'] = 'Žaidėjas miega',
         ['name'] = 'Vardas: %s',
-        ['unknown'] = 'Nežinomas'
+        ['unknown'] = 'Nežinomas',
+        ['license'] = "Licencija: %s"
     }
 }
 
@@ -50,7 +53,7 @@ Config.NameDisplay = {
     Enabled = true, -- Enable/disable name display
     MaskLastname = true, -- Mask last names (e.g., "Doe" becomes "Do*******")
     MaskLength = 2, -- Number of visible characters for masked last names
-    Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name -- Format of the name display (%s is replaced by the name)
+    Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name -- Format of the name display
 }
 
 -- MySQL Settings
