@@ -1,9 +1,5 @@
-ESX = exports['es_extended']:getSharedObject()
-
-
 local activePeds = {}
 local activeNames = {}
-
 
 local function _U(str, ...)
     local text = Config.Locales[Config.Locale][str]
@@ -43,16 +39,14 @@ local function DrawText3D(x, y, z, text)
         SetTextDropShadow()
         SetTextOutline()
         SetTextEntry("STRING")
-        SetTextCentre(1)
+        SetTextCentre(true)
         AddTextComponentString(text)
         DrawText(_x, _y)
     end
 end
 
-
 local function CreateSleepingPed(identifier, coords, heading, skin)
     Debug('Creating sleeping ped for %s at coords: %s, %s, %s', identifier, coords.x, coords.y, coords.z)
-
 
     if activePeds[identifier] then
         Debug('Removing existing ped for %s', identifier)
@@ -129,7 +123,6 @@ local function CreateSleepingPed(identifier, coords, heading, skin)
     SetModelAsNoLongerNeeded(modelHash)
 end
 
-
 RegisterNetEvent('ali_sleepoffline:spawnSleepingPed')
 AddEventHandler('ali_sleepoffline:spawnSleepingPed', function(identifier, coords, heading, skin, playerName)
     Debug('Received spawnSleepingPed event for %s (%s)', identifier, playerName)
@@ -173,7 +166,6 @@ AddEventHandler('ali_sleepoffline:removeSleepingPed', function(identifier)
         Debug('No ped found to remove for %s', identifier)
     end
 end)
-
 
 AddEventHandler('playerSpawned', function()
     Debug('Player spawned, requesting sleeping peds data')

@@ -44,7 +44,7 @@ Config.Locales = {
         ['sleeping'] = 'Žaidėjas miega',
         ['name'] = 'Vardas: %s',
         ['unknown'] = 'Nežinomas',
-        ['license'] = "Licencija: %s"
+        ['license'] = "%s"
     }
 }
 

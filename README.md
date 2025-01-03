@@ -14,6 +14,8 @@ A professional ESX script that creates sleeping peds for offline players. When a
 - Optimized performance through intelligent resource management
 - Debug mode for easy troubleshooting
 - Admin test command for manual testing
+- Supports illenium-appearance
+- Name display modes of disabled/name/license
 
 ## Dependencies
 
