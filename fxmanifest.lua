@@ -1,6 +1,7 @@
 
 fx_version 'cerulean'
 game 'gta5'
+lua54 'yes'
 
 author 'AliOG1337'
 description 'Ein professionelles ESX-Script, das schlafende Peds für offline Spieler erstellt'
