@@ -19,7 +19,6 @@ local function getPlayerData(identifier)
     local skin = nil
     local playerName = Config.Locales[Config.Locale]['unknown']
 
-    -- Fetch skin data
     local skinResult = MySQL.Sync.fetchAll(string.format('SELECT %s FROM %s WHERE %s = @identifier',
         Config.MySQL.Tables.Fields.Skin,
         Config.MySQL.Tables.Users,
@@ -35,7 +34,6 @@ local function getPlayerData(identifier)
         Debug('No skin data found for player')
     end
 
-    -- Fetch player name if enabled
     if Config.NameDisplay.Mode == 'name' then
         local nameResult = MySQL.Sync.fetchAll(string.format('SELECT %s, %s FROM %s WHERE %s = @identifier',
             Config.MySQL.Tables.Fields.Firstname,
