@@ -15,7 +15,7 @@ local function maskLastname(lastname)
     return lastname:sub(1, visibleLength) .. string.rep('*', #lastname - visibleLength)
 end
 
-local function getPlayerData(identifier)
+local function getPlayerData(identifier, source, name)
     local skin = nil
     local playerName = Config.Locales[Config.Locale]['unknown']
 
@@ -55,8 +55,14 @@ local function getPlayerData(identifier)
             Debug('No player name data found')
         end
     elseif Config.NameDisplay.Mode == 'license' then
-        playerName = identifier
+        playerName = identifier:gsub("steam:", "")
         Debug('Using license as player name: %s', playerName)
+    elseif Config.NameDisplay.Mode == 'id/name' then
+        playerName = source .. ' | ' .. name
+        Debug('Using source ID and player name: %s %s', source, name)
+    elseif Config.NameDisplay.Mode == 'id/license' then
+        playerName = source .. ' | ' .. identifier:gsub("steam:", "")
+        Debug('Using source ID and identifier: %s %s', source, name)
     else
         Debug('Name display is disabled')
     end
@@ -81,8 +87,8 @@ RegisterCommand(Config.Permissions.FakeCommandName, function(source)
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
     local heading = GetEntityHeading(ped)
-
-    local skin, playerName = getPlayerData(xPlayer.identifier)
+    local name = GetPlayerName(source)
+    local skin, playerName = getPlayerData(xPlayer.identifier, source, name)
 
     Debug('Saving sleeping ped data at coords: %s, %s, %s', coords.x, coords.y, coords.z)
     sleepingPeds[xPlayer.identifier] = {
@@ -107,7 +113,8 @@ AddEventHandler('playerDropped', function()
         local ped = GetPlayerPed(source)
         local coords = GetEntityCoords(ped)
         local heading = GetEntityHeading(ped)
-        local skin, playerName = getPlayerData(xPlayer.identifier)
+        local name = GetPlayerName(source)
+        local skin, playerName = getPlayerData(xPlayer.identifier, source, name)
 
         Debug('Saving sleeping ped data at coords: %s, %s, %s', coords.x, coords.y, coords.z)
         sleepingPeds[xPlayer.identifier] = {

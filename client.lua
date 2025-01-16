@@ -54,7 +54,7 @@ local function CreateSleepingPed(identifier, coords, heading, skin)
         activePeds[identifier] = nil
     end
 
-    local modelHash = joaat(skin.model)
+    local modelHash = joaat(skin.model) or `mp_m_freemode_01`
     Debug('Loading model: %s', modelHash)
     RequestModel(modelHash)
     while not HasModelLoaded(modelHash) do
@@ -69,6 +69,7 @@ local function CreateSleepingPed(identifier, coords, heading, skin)
     SetEntityInvincible(ped, true)
     SetBlockingOfNonTemporaryEvents(ped, true)
     SetPedCanBeTargetted(ped, false)
+    SetEntityCollision(ped, false, false)
 
     if skin then
         Debug('Applying skin to ped')

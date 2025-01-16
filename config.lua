@@ -50,7 +50,7 @@ Config.Locales = {
 
 -- Name Display Settings
 Config.NameDisplay = {
-    Mode = "license", -- Modes: false, "name", "license"
+    Mode = 'id/name', -- Modes: false, "name", "license", "id/name", "id/license"
     MaskLastname = true, -- Mask last names (e.g., "Doe" becomes "Do*******")
     MaskLength = 2, -- Number of visible characters for masked last names
     Format = nil -- Placeholder; will be dynamically set below
@@ -59,7 +59,7 @@ Config.NameDisplay = {
 -- Dynamically set the Format after Mode is declared
 if Config.NameDisplay.Mode == "name" then
     Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].name
-elseif Config.NameDisplay.Mode == "license" then
+elseif Config.NameDisplay.Mode == "license" or Config.NameDisplay.Mode == "id/name" or Config.NameDisplay.Mode == "id/license" then
     Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping.."\n~w~"..Config.Locales[Config.Locale].license
 else
     Config.NameDisplay.Format = "~y~"..Config.Locales[Config.Locale].sleeping
