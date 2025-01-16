@@ -89,6 +89,7 @@ end
 
 If you have any questions or issues, feel free to contact me:
 - Discord: AliOG1337
+- Discord: iSentrie
 
 ## License
 
