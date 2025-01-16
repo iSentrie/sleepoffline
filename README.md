@@ -9,7 +9,7 @@ A professional ESX script that creates sleeping peds for offline players. When a
 - Automatic removal of peds after a configurable time
 - Configurable 3D text display above sleeping players
 - Masking of last names for increased privacy
-- Multilingual support (German/English)
+- Multilingual support (German/English/Lithuanian)
 - Extensive configuration options
 - Optimized performance through intelligent resource management
 - Debug mode for easy troubleshooting
@@ -97,3 +97,4 @@ This script is copyright-protected. Any redistribution or modification without e
 
 © 2024 AliOG. All rights reserved.
 "# ali_sleepoffline"
+![image](https://github.com/user-attachments/assets/24e95843-21e6-4b9d-9bcf-9990929a6e75)
