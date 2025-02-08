@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'AliOG1337'
 description 'A professional ESX script that creates sleeping peds for offline players. (edited by iSentrie)'
-version '1.0.0'
+version '1.1.0'
 
 shared_scripts {
     '@es_extended/imports.lua',
